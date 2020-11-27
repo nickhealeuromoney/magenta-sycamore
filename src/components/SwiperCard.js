@@ -3,12 +3,12 @@ import React, { useCallback, useState } from 'react';
 const TRIGGER_POINT = 100;
 
 const SwiperCard = ({
-  metadata,
-  image,
+  Metadata,
+  ImageUrl,
   onClick,
   onSwipeLeft,
   onSwipeRight,
-  title,
+  Title,
 }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartPosition, setDragStartPosition] = useState();
@@ -43,7 +43,7 @@ const SwiperCard = ({
   const style = {
     backgroundImage: `
       linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.3) 100%),
-      url("${image}")
+      url("https://www.euromoneycdn.com${ImageUrl}")
     `,
     transform: `
       translate(${currentDragPosition / 10}px, -${Math.abs(currentDragPosition) / 5}px)
@@ -66,10 +66,10 @@ const SwiperCard = ({
       >
         <div className="card__content">
           <h3 className="card__title">
-            { title }
+            { Title }
           </h3>
           <p className="card__details">
-            { metadata }
+            { Metadata }
           </p>
         </div>
       </article>

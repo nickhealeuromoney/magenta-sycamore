@@ -36,8 +36,12 @@
 }
 
 .saved-article__image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
   border-radius: 16px;
-  height: auto;
+  height: 80px;
   margin-right: 16px;
   width: 80px;
 }
@@ -54,9 +58,11 @@
 .saved-article__title {
   font-size: 16px;
   font-weight: 500;
+  height: 40px;
   line-height: 20px;
   margin-bottom: 4px;
   margin-top: 0;
+  overflow: hidden;
 }
 
 .saved-article__metadata {
