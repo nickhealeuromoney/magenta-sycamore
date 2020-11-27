@@ -51,11 +51,13 @@ const SavedArticle = ({
       onTouchEnd={onTouchEnd}
     >
       <div className="saved-article__content" style={style}>
-        <img alt={title} className="saved-article__image" src={image} />
-        <div>
-          <h3 className="saved-article__category">Category</h3>
-          <h2 className="saved-article__title">{ title }</h2>
-          <p className="saved-article__metadata">{ metadata }</p>
+        <div className="saved-article__content-inner">
+          <img alt={title} className="saved-article__image" src={image} />
+          <div>
+            <h3 className="saved-article__category">Category</h3>
+            <h2 className="saved-article__title">{ title }</h2>
+            <p className="saved-article__metadata">{ metadata }</p>
+          </div>
         </div>
       </div>
       <svg

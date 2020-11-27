@@ -43,26 +43,29 @@ const SwiperSection = () => {
     <>
       <Filters />
       <Container className="swiper-section">
-        {cards.map((card, index) => {
-          if (card.done) return null;
-          const isFirstActiveCard = !cards[index - 1] || cards[index - 1].done;
-          return (
-            <div
-              className={`swiper-section__card-slot ${isFirstActiveCard ? 'swiper-section__card-slot--front' : 'swiper-section__card-slot--behind'}`}
-              key={index}
-              style={{
-                position: isFirstActiveCard ? 'static' : 'absolute',
-              }}
-            >
-              <SwiperCard
-                onClick={onClick}
-                onSwipeLeft={isFirstActiveCard ? () => onSwipeLeft(index) : null}
-                onSwipeRight={isFirstActiveCard ? () => onSwipeRight(index) : null}
-                {...card}
-              />
-            </div>
-          )
-        })}
+        <div className="swiper-section__inner">
+          {cards.map((card, index) => {
+            if (card.done) return null;
+            const isFirstActiveCard = !cards[index - 1] || cards[index - 1].done;
+            return (
+              <div
+                className={`swiper-section__card-slot ${isFirstActiveCard ? 'swiper-section__card-slot--front' : 'swiper-section__card-slot--behind'}`}
+                key={index}
+                style={{
+                  position: isFirstActiveCard ? 'static' : 'absolute',
+                  zIndex: `-${index}`,
+                }}
+              >
+                <SwiperCard
+                  onClick={onClick}
+                  onSwipeLeft={isFirstActiveCard ? () => onSwipeLeft(index) : null}
+                  onSwipeRight={isFirstActiveCard ? () => onSwipeRight(index) : null}
+                  {...card}
+                />
+              </div>
+            )
+          })}
+        </div>
       </Container>
     </>
   );

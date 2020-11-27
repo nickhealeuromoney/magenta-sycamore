@@ -1,6 +1,12 @@
 .swiper-section {
   overflow: hidden;
+}
+
+.swiper-section__inner {
+  box-sizing: border-box;
+  margin: 0 auto;
   max-width: 375px;
+  padding: 0 24px;
   position: relative;
 }
 
@@ -10,7 +16,7 @@
 
 .swiper-section__card-slot--behind {
   position: absolute;
-  top: 24px;
+  top: 0px;
   left: 24px;
   transform: scale(0.95) translateY(-24px);
   width: calc(100% - 48px);
