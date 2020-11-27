@@ -12,6 +12,10 @@
   margin: 0 auto;
 }
 
+.footer-nav__content svg {
+  display: block;
+}
+
 .footer-nav__content > * {
   border-right: solid 1px #cecece;
   margin: 16px 0;

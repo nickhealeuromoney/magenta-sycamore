@@ -1,5 +1,5 @@
 {
-    "description": "An ultra customizable generic theme for Stackbit",
+    "description": "Swipestory",
     "header": {
         "title": "Swipestory",
         "has_nav": true,
@@ -76,5 +76,5 @@
             }
         ]
     },
-    "title": "Stackbit Starter Theme"
+    "title": "Swipestory"
 }

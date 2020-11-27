@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const ARTICLES = {
-  article: {
-    metadata: 'Today · 5 minute read',
-    image: 'https://placebear.com/250/250',
-    title: 'China’s digital currency: A small leap forward',
-  }
-}
+// const ARTICLES = {
+//   article: {
+//     metadata: 'Today · 5 minute read',
+//     image: 'https://placebear.com/250/250',
+//     title: 'China’s digital currency: A small leap forward',
+//   }
+// }
 
 const ArticleSection = ({
   articleId,
 }) => {
-  const article = ARTICLES[articleId];
+  const [articles, setArticles] = useState();
 
-  if (!article) return <p>No article!</p>;
+  useEffect(() => {
+    async function getArticles() {
+      try {
+        const rawResponse = await fetch('http://localhost:3001/api/getUnmarkedArticles');
+        const response = await rawResponse.json();
+        setArticles(response);
+      } catch(e) {
+        console.error(e);
+      }
+    }
+    getArticles();
+  }, []);
+  
+  const article = articles ? articles.find(({ id }) => id === +articleId) : null;
+
+  if (!article) return <p>Loading...</p>;
 
   const {
     image,
