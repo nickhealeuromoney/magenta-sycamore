@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { navigate } from 'gatsby';
+import apiFormatter from '../utils/apiFormatter';
 import Filters from './Filters';
 import SavedArticle from './SavedArticle';
 
@@ -23,9 +24,9 @@ const SavedArticlesSection = () => {
   useEffect(() => {
     async function getCards() {
       try {
-        const rawResponse = await fetch('http://localhost:3001/api/getSavedArticles');
+        const rawResponse = await fetch('https://swipestory.azurewebsites.net/api/articles/getunmarkedarticles');
         const response = await rawResponse.json();
-        setArticles(response);
+        setArticles(apiFormatter(response));
       } catch(e) {
         console.error(e);
       }
@@ -60,9 +61,9 @@ const SavedArticlesSection = () => {
         <>
           {articles.map((article, index) => (
             <SavedArticle
-              key={article.id}
-              onClick={() => onClick(article.id)}
-              onDelete={() => onDelete(index, article.id)}
+              key={article.Id}
+              onClick={() => onClick(article.Id)}
+              onDelete={() => onDelete(index, article.Id)}
               {...article}
             />
           ))}

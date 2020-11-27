@@ -4,11 +4,11 @@ import { classNames } from '../utils';
 const TRIGGER_POINT = 60;
 
 const SavedArticle = ({
-  image,
-  metadata,
+  ImageUrl,
+  Metadata,
   onClick,
   onDelete,
-  title,
+  Title,
 }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartPosition, setDragStartPosition] = useState();
@@ -43,6 +43,10 @@ const SavedArticle = ({
     transition: isDragging ? '' : 'transform 100ms ease-out',
   };
 
+  const imageStyle = {
+    backgroundImage: `url("https://www.euromoneycdn.com${ImageUrl}")`,
+  };
+
   return (
     <article
       className={classNames('saved-article', { 'saved-article--swiping': Math.abs(currentDragPosition) > 0 })}
@@ -52,11 +56,11 @@ const SavedArticle = ({
     >
       <div className="saved-article__content" style={style}>
         <div className="saved-article__content-inner">
-          <img alt={title} className="saved-article__image" src={image} />
+          <div alt={Title} className="saved-article__image" style={imageStyle} />
           <div>
             <h3 className="saved-article__category">Category</h3>
-            <h2 className="saved-article__title">{ title }</h2>
-            <p className="saved-article__metadata">{ metadata }</p>
+            <h2 className="saved-article__title">{ Title }</h2>
+            <p className="saved-article__metadata">{ Metadata }</p>
           </div>
         </div>
       </div>

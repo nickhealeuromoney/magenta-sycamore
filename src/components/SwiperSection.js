@@ -3,6 +3,7 @@ import { navigate } from 'gatsby';
 import Container from './Container';
 import Filters from './Filters';
 import SwiperCard from './SwiperCard';
+import apiFormatter from '../utils/apiFormatter';
 
 // const CARDS = new Array(100).fill(0).map((_, index) => {
 //   return index % 2 === 0 ? {
@@ -24,9 +25,9 @@ const SwiperSection = () => {
   useEffect(() => {
     async function getCards() {
       try {
-        const rawResponse = await fetch('http://localhost:3001/api/getUnmarkedArticles');
+        const rawResponse = await fetch('https://swipestory.azurewebsites.net/api/articles/getunmarkedarticles');
         const response = await rawResponse.json();
-        setCards(response);
+        setCards(apiFormatter(response));
       } catch(e) {
         console.error(e);
       }
@@ -83,16 +84,16 @@ const SwiperSection = () => {
                 return (
                   <div
                     className={`swiper-section__card-slot ${isFirstActiveCard ? 'swiper-section__card-slot--front' : 'swiper-section__card-slot--behind'}`}
-                    key={card.id}
+                    key={card.Id}
                     style={{
                       position: isFirstActiveCard ? 'static' : 'absolute',
                       zIndex: `-${index}`,
                     }}
                   >
                     <SwiperCard
-                      onClick={() => onClick(card.id)}
-                      onSwipeLeft={isFirstActiveCard ? () => onSwipeLeft(index, card.id) : null}
-                      onSwipeRight={isFirstActiveCard ? () => onSwipeRight(index, card.id) : null}
+                      onClick={() => onClick(card.Id)}
+                      onSwipeLeft={isFirstActiveCard ? () => onSwipeLeft(index, card.Id) : null}
+                      onSwipeRight={isFirstActiveCard ? () => onSwipeRight(index, card.Id) : null}
                       {...card}
                     />
                   </div>
