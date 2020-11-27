@@ -28,7 +28,7 @@ const ArticleSection = ({
   
   const article = articles ? articles.find(({ id }) => id === +articleId) : null;
 
-  if (!article) return <p>Loading...</p>;
+  if (!article) return <p style={{ boxSizing: 'border-box', margin: '0 auto', maxWidth: '375px', padding: '24px' }}>Loading...</p>;
 
   const {
     image,

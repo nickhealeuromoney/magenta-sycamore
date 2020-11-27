@@ -55,7 +55,7 @@ const SavedArticlesSection = () => {
     <>
       <Filters />
       {!articles ? (
-        <p style={{ padding: '24px' }}>Loading...</p>
+        <p style={{ boxSizing: 'border-box', margin: '0 auto', maxWidth: '375px', padding: '24px' }}>Loading...</p>
       ) : ( 
         <>
           {articles.map((article, index) => (
