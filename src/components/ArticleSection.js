@@ -26,8 +26,6 @@ const ArticleSection = ({
     }
     getArticles();
   }, []);
-
-  console.log(articles, articleId);
   
   const article = articles ? articles.find(({ Id }) => Id === articleId) : null;
 
