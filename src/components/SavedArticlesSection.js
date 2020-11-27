@@ -1,4 +1,6 @@
 import React from 'react';
+import { navigate } from 'gatsby';
+import Filters from './Filters';
 import SavedArticle from './SavedArticle';
 
 const ARTICLES = new Array(100).fill(0).map((_, index) => {
@@ -14,9 +16,14 @@ const ARTICLES = new Array(100).fill(0).map((_, index) => {
 });
 
 const SavedArticlesSection = () => {
+  function onClick() {
+    navigate('/article/article');
+  }
+
   return (
     <>
-      {ARTICLES.map((article, index) => <SavedArticle key={index} onDelete={() => console.log('deleted')} {...article} />)}
+      <Filters />
+      {ARTICLES.map((article, index) => <SavedArticle key={index} onClick={onClick} onDelete={() => console.log('deleted')} {...article} />)}
     </>
   );
 };

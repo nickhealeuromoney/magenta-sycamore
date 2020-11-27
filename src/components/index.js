@@ -1,4 +1,5 @@
 import Action from './Action';
+import ArticleSection from './ArticleSection';
 import BlogFeedItemFilter from './BlogFeedItemFilter';
 import BlogFeedSection from './BlogFeedSection';
 import BlogPostCategories from './BlogPostCategories';
@@ -19,6 +20,7 @@ import SwiperSection from './SwiperSection';
 
 export {
     Action,
+    ArticleSection,
     BlogFeedItemFilter,
     BlogFeedSection,
     BlogPostCategories,
@@ -40,6 +42,7 @@ export {
 
 export default {
     Action,
+    ArticleSection,
     BlogFeedItemFilter,
     BlogFeedSection,
     BlogPostCategories,

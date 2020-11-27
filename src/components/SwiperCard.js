@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 const TRIGGER_POINT = 100;
 
 const SwiperCard = ({
   metadata,
   image,
+  onClick,
   onSwipeLeft,
   onSwipeRight,
   title,
@@ -13,18 +14,22 @@ const SwiperCard = ({
   const [dragStartPosition, setDragStartPosition] = useState();
   const [currentDragPosition, setCurrentDragPosition] = useState(0);
 
-  function onTouchStart(e) {
+  const onTouchStart = useCallback((e) => {
     setDragStartPosition(e.touches[0].clientX);
     setIsDragging(true);
-  }
+  }, []);
 
-  function onTouchMove(e) {
+  const onTouchMove = useCallback((e) => {
     if (!isDragging) return;
     setCurrentDragPosition(e.touches[0].clientX - dragStartPosition);
-  }
+  }, [isDragging, dragStartPosition]);
 
-  function onTouchEnd() {
+  const onTouchEnd = useCallback(() => {
     setIsDragging(false);
+
+    if (Math.abs(currentDragPosition) === 0) {
+      onClick && onClick();
+    }
 
     if (currentDragPosition < -TRIGGER_POINT) {
       onSwipeLeft && onSwipeLeft();
@@ -33,7 +38,7 @@ const SwiperCard = ({
     }
     
     setCurrentDragPosition(0);
-  }
+  }, [currentDragPosition, onSwipeLeft, onSwipeRight]);
 
   const style = {
     backgroundImage: `
