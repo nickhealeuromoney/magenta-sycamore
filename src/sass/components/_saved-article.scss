@@ -25,7 +25,13 @@
 .saved-article__content {
   background-color: #fff;
   border-radius: 8px;
+}
+
+.saved-article__content-inner {
+  box-sizing: border-box;
   display: flex;
+  margin: 0 auto;
+  max-width: 375px;
   padding: 16px 24px;
 }
 
