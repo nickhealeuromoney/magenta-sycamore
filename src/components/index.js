@@ -14,6 +14,8 @@ import HeroSection from './HeroSection';
 import SectionActions from './SectionActions';
 import TeamSection from './TeamSection';
 import Layout from './Layout';
+import SavedArticlesSection from './SavedArticlesSection';
+import SwiperSection from './SwiperSection';
 
 export {
     Action,
@@ -31,7 +33,9 @@ export {
     HeroSection,
     SectionActions,
     TeamSection,
-    Layout
+    Layout,
+    SavedArticlesSection,
+    SwiperSection,
 };
 
 export default {
@@ -50,5 +54,7 @@ export default {
     HeroSection,
     SectionActions,
     TeamSection,
-    Layout
+    Layout,
+    SavedArticlesSection,
+    SwiperSection,
 };

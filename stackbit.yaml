@@ -259,6 +259,8 @@ models:
             - features_section
             - hero_section
             - team_section
+            - swiper_section
+            - saved_articles_section
   blog_feed_section:
     type: object
     label: Blog Feed Section
@@ -441,6 +443,24 @@ models:
               - no-repeat
             default: no-repeat
             description: Repeat the image to cover the whole area.
+  swiper_section:
+    type: object
+    label: Swiper Section
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+  saved_articles_section:
+    type: object
+    label: Saved Articles Section
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
   team_section:
     type: object
     label: Team Section
