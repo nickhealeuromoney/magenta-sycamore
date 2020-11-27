@@ -5,6 +5,7 @@ const TRIGGER_POINT = 100;
 const SwiperCard = ({
   metadata,
   image,
+  onClick,
   onSwipeLeft,
   onSwipeRight,
   title,
@@ -25,6 +26,10 @@ const SwiperCard = ({
 
   const onTouchEnd = useCallback(() => {
     setIsDragging(false);
+
+    if (Math.abs(currentDragPosition) === 0) {
+      onClick && onClick();
+    }
 
     if (currentDragPosition < -TRIGGER_POINT) {
       onSwipeLeft && onSwipeLeft();

@@ -6,6 +6,7 @@ const TRIGGER_POINT = 60;
 const SavedArticle = ({
   image,
   metadata,
+  onClick,
   onDelete,
   title,
 }) => {
@@ -25,6 +26,10 @@ const SavedArticle = ({
 
   function onTouchEnd() {
     setIsDragging(false);
+
+    if (Math.abs(currentDragPosition) === 0) {
+      onClick && onClick();
+    }
 
     if (currentDragPosition < -TRIGGER_POINT) {
       onDelete && onDelete();

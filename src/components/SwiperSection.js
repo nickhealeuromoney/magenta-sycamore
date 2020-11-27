@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { navigate } from 'gatsby';
 import Container from './Container';
 import SwiperCard from './SwiperCard';
 
@@ -21,6 +22,10 @@ const SwiperSection = () => {
     const newCards = [...cards];
     newCards[index].done = true;
     setCards([...newCards]);
+  }
+
+  function onClick() {
+    navigate('/article/article');
   }
 
   function onSwipeLeft(index) {
@@ -47,6 +52,7 @@ const SwiperSection = () => {
             }}
           >
             <SwiperCard
+              onClick={onClick}
               onSwipeLeft={isFirstActiveCard ? () => onSwipeLeft(index) : null}
               onSwipeRight={isFirstActiveCard ? () => onSwipeRight(index) : null}
               {...card}

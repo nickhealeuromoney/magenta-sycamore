@@ -261,6 +261,7 @@ models:
             - team_section
             - swiper_section
             - saved_articles_section
+            - article_section
   blog_feed_section:
     type: object
     label: Blog Feed Section
@@ -455,6 +456,15 @@ models:
   saved_articles_section:
     type: object
     label: Saved Articles Section
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+  article_section:
+    type: object
+    label: Article Section
     labelField: title
     fields:
       - type: string
