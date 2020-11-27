@@ -1,7 +1,10 @@
 .filters {
   display: flex;
   list-style-type: none;
-  margin-bottom: 12px;
+  margin: 0 auto 12px;
+  max-width: 375px;
+  box-sizing: border-box;
+  padding: 0 24px;
 }
 
 .filters__filter {

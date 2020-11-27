@@ -23,7 +23,9 @@ const SavedArticlesSection = () => {
   return (
     <>
       <Filters />
-      {ARTICLES.map((article, index) => <SavedArticle key={index} onClick={onClick} onDelete={() => console.log('deleted')} {...article} />)}
+      <section className="saved-articles">
+        {ARTICLES.map((article, index) => <SavedArticle key={index} onClick={onClick} onDelete={() => console.log('deleted')} {...article} />)}
+      </section>
     </>
   );
 };
