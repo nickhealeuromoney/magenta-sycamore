@@ -2,14 +2,64 @@
  * Cards
  */
 .card {
-  background-color: $color-bg;
-  border: 1px solid $color-border;
-  border-radius: 3px;
-  box-shadow: $box-shadow;
+  background-color: white;
+  border-radius: 16px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform-origin: center 200%;
+}
+
+.card__content {
+  height: 92px;
+  padding: 352px 24px 0;
+}
+
+.card__title {
+  color: white;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  margin-bottom: 8px;
+}
+
+.card__details {
+  color: #EAEEEF;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  opacity: 0.8;
+}
+
+.card__action {
+  height: 100px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: scale(0.95) translateY(-50%);
+  transform-origin: center;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  width: 100px;
+}
+
+.card__action--active {
+  opacity: 1;
+  transform: scale(1) translateY(-50%);
+}
+
+.card__action--delete {
+  left: 16px;
+}
+
+.card__action--save {
+  right: 16px;
 }
 
 .cell {

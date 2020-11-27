@@ -1,7 +1,7 @@
 ---
-title: Home
+title: Saved
 sections:
-  - type: swiper_section
+  - type: saved_articles_section
     title: This Is A Big Hero Headline
 template: advanced
 ---

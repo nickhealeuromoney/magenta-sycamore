@@ -28,6 +28,17 @@ module.exports = {
                 sourceUrlPath: `fields.url`,
                 pageContextProperty: `menus`,
             }
+        },
+        {
+            resolve: `gatsby-plugin-prefetch-google-fonts`,
+            options: {
+                fonts: [
+                    {
+                        family: `Roboto`,
+                        variants: [`400`]
+                    },
+                ],
+            },
         }
     ]
 };

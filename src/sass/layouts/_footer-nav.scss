@@ -1,0 +1,26 @@
+.footer-nav {
+  border-top: solid 1px #cecece;
+  display: flex;
+  margin: 0 auto;
+}
+
+.footer-nav > * {
+  border-right: solid 1px #cecece;
+  margin: 16px 0;
+  padding: 0 50px;
+}
+
+.footer-nav > *:first-child {
+  padding-left: 20px;
+  padding-right: 80px;
+}
+
+.footer-nav > *:last-child {
+  border-right: 0;
+  padding-left: 80px;
+  padding-right: 20px;
+}
+
+.footer-nav__link--inactive {
+  opacity: 0.8;
+}

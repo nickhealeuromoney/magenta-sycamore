@@ -1,0 +1,21 @@
+.swiper-section {
+  overflow: hidden;
+  position: relative;
+}
+
+.swiper-section__card-slot {
+  transition: 300ms ease-in-out;
+}
+
+.swiper-section__card-slot--behind {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  transform: scale(0.95) translateY(-24px);
+  width: calc(100% - 48px);
+  z-index: -1;
+}
+
+.swiper-section__card-slot--front {
+  position: static;
+}
