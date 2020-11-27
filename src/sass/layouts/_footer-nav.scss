@@ -1,21 +1,29 @@
 .footer-nav {
+  background: #fff;
+  bottom: 0;
+  position: fixed;
+  width: 100vw;
+}
+
+.footer-nav__content {
   border-top: solid 1px #cecece;
   display: flex;
+  justify-content: center;
   margin: 0 auto;
 }
 
-.footer-nav > * {
+.footer-nav__content > * {
   border-right: solid 1px #cecece;
   margin: 16px 0;
   padding: 0 50px;
 }
 
-.footer-nav > *:first-child {
+.footer-nav__content > *:first-child {
   padding-left: 20px;
   padding-right: 80px;
 }
 
-.footer-nav > *:last-child {
+.footer-nav__content > *:last-child {
   border-right: 0;
   padding-left: 80px;
   padding-right: 20px;

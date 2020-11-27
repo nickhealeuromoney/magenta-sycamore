@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 import Container from './Container';
+import Filters from './Filters';
 import SwiperCard from './SwiperCard';
 
 const CARDS = new Array(100).fill(0).map((_, index) => {
@@ -39,28 +40,31 @@ const SwiperSection = () => {
   }
 
   return (
-    <Container className="swiper-section">
-      {cards.map((card, index) => {
-        if (card.done) return null;
-        const isFirstActiveCard = !cards[index - 1] || cards[index - 1].done;
-        return (
-          <div
-            className={`swiper-section__card-slot ${isFirstActiveCard ? 'swiper-section__card-slot--front' : 'swiper-section__card-slot--behind'}`}
-            key={index}
-            style={{
-              position: isFirstActiveCard ? 'static' : 'absolute',
-            }}
-          >
-            <SwiperCard
-              onClick={onClick}
-              onSwipeLeft={isFirstActiveCard ? () => onSwipeLeft(index) : null}
-              onSwipeRight={isFirstActiveCard ? () => onSwipeRight(index) : null}
-              {...card}
-            />
-          </div>
-        )
-      })}
-    </Container>
+    <>
+      <Filters />
+      <Container className="swiper-section">
+        {cards.map((card, index) => {
+          if (card.done) return null;
+          const isFirstActiveCard = !cards[index - 1] || cards[index - 1].done;
+          return (
+            <div
+              className={`swiper-section__card-slot ${isFirstActiveCard ? 'swiper-section__card-slot--front' : 'swiper-section__card-slot--behind'}`}
+              key={index}
+              style={{
+                position: isFirstActiveCard ? 'static' : 'absolute',
+              }}
+            >
+              <SwiperCard
+                onClick={onClick}
+                onSwipeLeft={isFirstActiveCard ? () => onSwipeLeft(index) : null}
+                onSwipeRight={isFirstActiveCard ? () => onSwipeRight(index) : null}
+                {...card}
+              />
+            </div>
+          )
+        })}
+      </Container>
+    </>
   );
 }
 

@@ -1,0 +1,22 @@
+.filters {
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 12px;
+}
+
+.filters__filter {
+  border: solid 1px #eaeeef;
+  border-radius: 48px;
+  color: #2a2e2f;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  margin-right: 8px;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.filters__filter--active {
+  background: #61696B;
+  color: #fff;
+}
