@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import urls from '../utils/urls';
 import apiFormatter from '../utils/apiFormatter';
 
 // const ARTICLES = {
@@ -17,7 +18,7 @@ const ArticleSection = ({
   useEffect(() => {
     async function getArticles() {
       try {
-        const rawResponse = await fetch('https://swipestory.azurewebsites.net/api/articles/getunmarkedarticles');
+        const rawResponse = await fetch(urls.unmarkedArticles);
         const response = await rawResponse.json();
         setArticles(apiFormatter(response));
       } catch(e) {

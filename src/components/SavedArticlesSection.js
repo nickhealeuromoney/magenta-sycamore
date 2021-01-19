@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { navigate } from 'gatsby';
+import urls from '../utils/urls';
 import apiFormatter from '../utils/apiFormatter';
 import Filters from './Filters';
 import SavedArticle from './SavedArticle';
@@ -24,7 +25,7 @@ const SavedArticlesSection = () => {
   useEffect(() => {
     async function getCards() {
       try {
-        const rawResponse = await fetch('https://swipestory.azurewebsites.net/api/articles/getunmarkedarticles');
+        const rawResponse = await fetch(urls.unmarkedArticles);
         const response = await rawResponse.json();
         setArticles(apiFormatter(response));
       } catch(e) {
@@ -43,7 +44,7 @@ const SavedArticlesSection = () => {
     newArticles.splice(index, 1);
     setArticles(newArticles);
     try {
-      await fetch('http://localhost:3001/api/deleteArticle', {
+      await fetch(urls.deleteArticle, {
         method: 'PUT',
         body: JSON.stringify({ id })
       });
